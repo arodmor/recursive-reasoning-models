@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+.venv/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Secrets
+.env
+
+# Model checkpoints / large outputs (round-2 reproductions)
+checkpoints/
+*.ckpt
+*.pt
+data/
+
+# OS
+.DS_Store

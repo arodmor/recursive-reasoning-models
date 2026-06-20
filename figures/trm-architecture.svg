@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" font-family="Inter, Helvetica, Arial, sans-serif" role="img" aria-labelledby="title desc">
+  <title id="title">Tiny Recursive Model — recursive refinement loop</title>
+  <desc id="desc">Schematic of TRM: a single tiny shared network f reads the question x, the current answer y and a latent scratchpad z, and repeatedly refines z and then y over a fixed budget of steps before returning the final answer.</desc>
+
+  <!-- palette: teal #1a6b6b / dark #134f4f / alt-bg #f7f9f9 / text #1a1a1a / secondary #4a5568 / border #e2e8f0 -->
+  <rect x="0" y="0" width="960" height="480" fill="#f7f9f9"/>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a6b6b"/>
+    </marker>
+    <marker id="arrowDark" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#134f4f"/>
+    </marker>
+  </defs>
+
+  <text x="48" y="50" font-size="26" font-weight="700" fill="#1a1a1a">TRM: refine a tiny answer, recursively</text>
+  <text x="48" y="76" font-size="14" fill="#4a5568">One shared ~7M-param, 2-layer network, looped — test-time iteration as effective depth</text>
+
+  <!-- x: question (left) -->
+  <rect x="60" y="210" width="150" height="64" rx="6" fill="#ffffff" stroke="#1a6b6b" stroke-width="2"/>
+  <text x="135" y="238" text-anchor="middle" font-size="16" font-weight="700" fill="#134f4f">x</text>
+  <text x="135" y="258" text-anchor="middle" font-size="12" fill="#4a5568">the question</text>
+
+  <!-- f: the shared net (center) -->
+  <rect x="380" y="180" width="220" height="124" rx="8" fill="#1a6b6b"/>
+  <text x="490" y="228" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">f</text>
+  <text x="490" y="252" text-anchor="middle" font-size="12.5" fill="#dff0ef">tiny shared network</text>
+  <text x="490" y="270" text-anchor="middle" font-size="12.5" fill="#dff0ef">2 layers · ~7M params</text>
+
+  <!-- y: answer (right) -->
+  <rect x="760" y="210" width="150" height="64" rx="6" fill="#ffffff" stroke="#1a6b6b" stroke-width="2"/>
+  <text x="835" y="238" text-anchor="middle" font-size="16" font-weight="700" fill="#134f4f">y</text>
+  <text x="835" y="258" text-anchor="middle" font-size="12" fill="#4a5568">current answer</text>
+
+  <!-- x -> f -->
+  <line x1="210" y1="242" x2="372" y2="242" stroke="#1a6b6b" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- f -> y (output) -->
+  <line x1="600" y1="242" x2="752" y2="242" stroke="#1a6b6b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="676" y="232" text-anchor="middle" font-size="11" fill="#4a5568">revise answer</text>
+
+  <!-- z: latent scratchpad, top loop -->
+  <rect x="410" y="92" width="160" height="56" rx="6" fill="#ffffff" stroke="#134f4f" stroke-width="2"/>
+  <text x="490" y="116" text-anchor="middle" font-size="15" font-weight="700" fill="#134f4f">z</text>
+  <text x="490" y="135" text-anchor="middle" font-size="11.5" fill="#4a5568">latent scratchpad</text>
+
+  <!-- f -> z (update scratchpad) -->
+  <path d="M540,180 C560,160 580,148 570,148" fill="none" stroke="#134f4f" stroke-width="2.5"/>
+  <path d="M560,180 L573,150" fill="none" stroke="#134f4f" stroke-width="2.5" marker-end="url(#arrowDark)"/>
+  <!-- z -> f (feed scratchpad back) -->
+  <path d="M410,128 C360,150 380,176 412,182" fill="none" stroke="#134f4f" stroke-width="2.5" marker-end="url(#arrowDark)"/>
+  <text x="372" y="150" text-anchor="middle" font-size="11" fill="#4a5568">refine</text>
+
+  <!-- y feedback loop (bottom): y back into f -->
+  <path d="M835,274 L835,360 L490,360 L490,308" fill="none" stroke="#1a6b6b" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+  <text x="662" y="380" text-anchor="middle" font-size="12" fill="#4a5568">feed the current answer back in — repeat for a fixed budget (~16 steps)</text>
+
+  <!-- final output note -->
+  <text x="835" y="300" text-anchor="middle" font-size="11" fill="#4a5568">→ final y after last step</text>
+
+  <text x="48" y="455" font-size="11" fill="#4a5568">Schematic after Jolicoeur-Martineau, "Less is More" (arXiv:2510.04871). Original drawing. © 2026 Antonio Rodriguez-Moral, CC BY 4.0.</text>
+</svg>
