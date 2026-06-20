@@ -83,7 +83,11 @@ Jolicoeur-Martineau, **Samsung SAIL Montréal**,
 - **Code:** [`SamsungSAILMontreal/TinyRecursiveModels`](https://github.com/SamsungSAILMontreal/TinyRecursiveModels)
   — **MIT licensed**, so it's safe to reproduce and build on.
 
-![TRM recursive loop — architecture sketch](figures/trm-architecture.svg)
+![TRM architecture — the official paper figure](figures/TRM_fig.png)
+
+> *Figure: the TRM architecture, from the official implementation
+> ([SamsungSAILMontreal/TinyRecursiveModels](https://github.com/SamsungSAILMontreal/TinyRecursiveModels)) —
+> © 2025 Samsung Electronics Co., Ltd., reused under the MIT License. See [CREDITS](CREDITS.md).*
 
 ## 3. A critical reading
 
@@ -155,8 +159,10 @@ Re-verified **2026-06-20**. Reported metrics are the cited authors', not mine.
 - ARC Prize 2025: Technical Report — <https://arxiv.org/abs/2601.10904>
 - Official code: `SamsungSAILMontreal/TinyRecursiveModels` (MIT) — <https://github.com/SamsungSAILMontreal/TinyRecursiveModels>
 
-*Prose and figures in this repo are © 2026 Antonio Rodriguez-Moral, licensed
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); code is [MIT](LICENSE).*
+*Prose in this repo is © 2026 Antonio Rodriguez-Moral, licensed
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); code is [MIT](LICENSE). The
+architecture figure (`figures/TRM_fig.png`) is © 2025 Samsung Electronics Co., Ltd.,
+reused under the MIT License — see [CREDITS](CREDITS.md).*
 
 ---
 🌐 [arodmor.me](https://arodmor.me) · 💻 [github.com/arodmor](https://github.com/arodmor) · ✉️ [antonio.rodriguez.moral@pm.me](mailto:antonio.rodriguez.moral@pm.me)
